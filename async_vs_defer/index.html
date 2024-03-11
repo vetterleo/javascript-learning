@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <meta lanf="en"/>
+    <title>Learn async vs defer in javascript</title>
+</head>
+<body>
+    <h1>Learning async vs defer in javascript</h1>
+
+    <!-- The browser stop the parsing at that point of time and then sees the script tag and then 
+        fetches the script from the network and gets into the browser and then runs it
+        While the script is fetched from the network and executed on the browser the parsing of the html
+        is paused and resumed after. So the javascript is blocking the rendering of the html -->
+    <script src="main.js"></script>
+
+    <!-- Meanwhile the html parsing is going on the script is fetched from the network in parallel.
+        As soon as the script is fetched and available on the browser the html parsing stops and the 
+        script is executed. After the script is executed the html parsing resumes -->
+    <script async src="main.js"></script>
+
+    <!-- With defer tag the html parsing goes on and the script is fetched in parallel
+        And the html parsing continues and the script is only executed when the html parsing is fully completed
+         -->
+    <script defer src="main.js"></script>
+</body>

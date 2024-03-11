@@ -1,3 +1,8 @@
+/**
+ * “this” is dynamically set during functions execution and it refers to the calling environment. 
+ * To identify “this” we have to ask a question “Who is calling it” 
+ * the answer is the value of the “this” keyword.
+ */
 "use strict";
 
 // this in global space
@@ -17,7 +22,7 @@ x();
 
     // if the value of this keyword is undefined or null
     // this keyword will be replaced with global object
-    // only in non stric mode
+    // only in non strict mode
 
 // the value of this keyword depend on how this is called
 
@@ -50,7 +55,7 @@ student.printName.call(student2); // student2 - Eric
 const obj = {
     a: 10,
     x: () => {
-        console.log(this);
+        console.log(this); //window or undefined
     },
     z: function() {
 
@@ -60,7 +65,7 @@ const obj = {
         }
         y()
     },
-    c: console.log(this) // window
+    c: console.log(this) // window or undefined
 }
 
 obj.x(); // window
